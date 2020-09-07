@@ -1,0 +1,53 @@
+<form method="POST" class="needs-validation main" novalidate id="g-form">
+    <?= $form->csrfField('noob') ?>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white navbar-shadow">
+        <div class="navbar-multiline mr-auto">
+            <span class="navbar-brand" href="#0">Profile Gallery Editor</span>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="<?= $this->router->to('adminHome') ?>">Home</a></li>
+                    <li class="breadcrumb-item"><a href="<?= $this->router->to('adminProfile') ?>">Profile</a></li>
+                    <li class="breadcrumb-item"><a href="<?= $this->router->to('adminProfileGallery', ['id'=>$profile->id]) ?>"><?= hs($profile->fullname) ?></a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><?= $subtitle ?></li>
+                </ol>
+            </nav>
+        </div>
+        <button class="btn btn-primary">Save</button>
+    </nav>
+
+    <div class="container p-3">
+        <div class="row mb-3">
+            <div class="col-md-3">
+                <?= $this->partial('profile/editor-sidebar') ?>
+            </div>
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-body">
+                        <?= $form->field('title'); ?>
+                        <?= $form->field('images'); ?>
+                        <div class="row" id="g-list"></div>
+                        <div>
+                            <button class="btn btn-secondary btn-block g-list-item-add" type="button">
+                                Add Image
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<?php
+    \AdminUi\Library\Assets::addAsset('js', 'foot', 'js/profile-gallery.js', '1');
+?>
+<style>
+    .g-list-thumb{
+        border: 1px solid #CCC;
+        width: 66px;
+        height: 66px;
+        background-position: center center;
+        background-size: cover;
+        background-color: #eee;
+    }
+</style>
