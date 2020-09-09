@@ -107,7 +107,7 @@ class GalleryController extends \Admin\Controller
 
         $galleries = PGallery::get($cond, $rpp, $page, ['created'=>false]) ?? [];
         if($galleries)
-            $galleries = Formatter::formatMany('profile-gallery', $galleries, ['user']);
+            $galleries = Formatter::formatMany('profile-gallery', $galleries, ['user','profile']);
         $params['galleries'] = $galleries;
 
         $params['total'] = $total = PGallery::count($cond);

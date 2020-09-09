@@ -43,6 +43,11 @@
                                         <a href="<?= $this->router->to('adminProfileGalleryEdit', ['profile'=>$profile->id,'id'=>$gallery->id->value]) ?>" class="btn btn-secondary" title="Edit">
                                             <i class="fas fa-edit"></i>
                                         </a>
+                                        <?php if(isset($gallery->page)): ?>
+                                            <a href="<?= $gallery->page ?>" class="btn btn-secondary" title="View Page" target="_blank">
+                                                <i class="fas fa-external-link-square-alt"></i>
+                                            </a>
+                                        <?php endif; ?>
                                         <div class="btn-group btn-group-sm" role="group">
                                             <button id="profile-gallery-action-<?= $gallery->id ?>" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
                                             <div class="dropdown-menu" aria-labelledby="profile-gallery-action-<?= $gallery->id ?>">
